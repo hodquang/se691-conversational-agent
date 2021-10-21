@@ -44,11 +44,9 @@ class App extends Component{
         (error) => console.log(error),
     );
   }
-
+  
   handleGoogleResponse(result) {
     let text = result.queryResult.fulfillmentMessages[0].text.text[0];
-    console.log("result.= ", result)
-    
     this.sendBotResponse(text);
   }
 
