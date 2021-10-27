@@ -3,7 +3,7 @@
 # Setup (if you want to rebuild it)
 - Make sure Node version is up-to-date (npm install)
 - Install: react-native
-- Install: react-native-dialogflow, react-native-voice, react-native-gifed-chat
+- Install: react-native-dialogflow, react-native-voice, react-native-gifted-chat
 
 # How to view
 - get into the root folder for Chatbot
