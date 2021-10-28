@@ -28,8 +28,8 @@
 -Install Homebrew using Terminal with the following command  
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
--Intstall Xcode  
--Under "Xcode" select "Preferences" then navigate to the "Locations" tab check that Command Line Tools is not blank  
+-Install Xcode  
+Under "Xcode" select "Preferences" then navigate to the "Locations" tab check that Command Line Tools is not blank  
 
 -Install Node and Watchman using the following Commands  
 brew install node  
@@ -39,25 +39,31 @@ brew install watchman
 brew install cocoapods  
 sudo gem install ffi  
 
--Using your terminal or IDE (I used VSCode with Github Extension) clone the repository from Github using the following link  
+-Clone the repository from Github  
+Using your terminal or IDE (I used VSCode with Github Extension)  
 https://github.com/shaquille-hall/se691-conversational-agent.git  
 
--Add the env.js file posted in Slack (this link should work) and place it under the Chatbot folder  
-https://se691-softwarestudio.slack.com/files/U02H3C0T3LG/F02K7RD1YVB/env.js  
+-Add the env.js file  
+Download it and place it in the Chatbot folder  
+https://se691-softwarestudio.slack.com/files/U02H3C0T3LG/F02K7RD1YVB/env.js    
 
--Change directory into the folder you cloned it to and install npm dependencies  
+-Change Directory to the Folder Cloned to    
 cd 'folder installed to'  
 cd se691-conversational-agent/Chatbot/  
+
+-Install npm dependencies
 npm install  
 
--cd back into the Chatbot and into ios (the previous npm install always kicks me out of the directory) then pod install (results: https://imgur.com/a/KAiisnK)  
-cd se691-conversational-agent/Chatbot/ios  
+-Change Directory back into the Chatbot and Into ios (the previous npm install always kicks me out of the directory)  
+cd se691-conversational-agent/Chatbot/ios    
+
+-Install Cocoapod Dependencies (results: https://imgur.com/a/KAiisnK) 
 pod install  
 
--cd back into the Chatbot and into ios (the previous pod install kicks me out of the directory, you can doublehcedk you are still in it with the "ls" command)  
-cd se691-conversational-agent/Chatbot/ios  
+-Change Directory back into the Chatbot (pod install kicks me out as well)  
+cd se691-conversational-agent/Chatbot/  
 
 -Open iPhone Simulator under "Xcode" select "Open Developer Tool" and select "Simulator" (I would then recommend closing Xcode itself, according to some blogs)  
 
--run the npx command to build the app and Deploy to simulator  
+-Deploy to simulator  
 npx react-native run-ios
