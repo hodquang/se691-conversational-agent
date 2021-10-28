@@ -23,7 +23,7 @@
   + Android Studio (https://developer.android.com/studio/?gclid=CjwKCAjw_L6LBhBbEiwA4c46ukIoqLbJjZGt7VPSEXEXGdLBYnZbhEaUxM7AuPrho1QaXDcV82lonRoCGKEQAvD_BwE&gclsrc=aw.ds)
 
 
-#Setup From Scratch on Mac M1 on Rosetta (should be similar to non-M1.  I used the regular terminal, as I was having trouble using VSCode's built-in terminal)
+# Setup From Scratch on Mac M1 on Rosetta (should be similar to non-M1.  I used the regular terminal, as I was having trouble using VSCode's built-in terminal)
 
 -Install Homebrew using Terminal with the following command
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
