@@ -23,7 +23,7 @@
   + Android Studio (https://developer.android.com/studio/?gclid=CjwKCAjw_L6LBhBbEiwA4c46ukIoqLbJjZGt7VPSEXEXGdLBYnZbhEaUxM7AuPrho1QaXDcV82lonRoCGKEQAvD_BwE&gclsrc=aw.ds)
 
 
-# Setup From Scratch on Mac M1 on Rosetta (should be similar to non-M1.  I used the regular terminal, as I was having trouble using VSCode's built-in terminal)
+# Setup From Scratch on M1 w/ Rosetta (similar to non-M1)
 
 -Install Homebrew using Terminal with the following command  
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -51,19 +51,20 @@ https://se691-softwarestudio.slack.com/files/U02H3C0T3LG/F02K7RD1YVB/env.js
 cd 'folder installed to'  
 cd se691-conversational-agent/Chatbot/  
 
--Install npm dependencies
+-Install npm dependencies  
 npm install  
 
 -Change Directory back into the Chatbot and Into ios (the previous npm install always kicks me out of the directory)  
 cd se691-conversational-agent/Chatbot/ios    
 
--Install Cocoapod Dependencies (results: https://imgur.com/a/KAiisnK) 
+-Install Cocoapod Dependencies (results: https://imgur.com/a/KAiisnK)   
 pod install  
 
 -Change Directory back into the Chatbot (pod install kicks me out as well)  
 cd se691-conversational-agent/Chatbot/  
 
--Open iPhone Simulator under "Xcode" select "Open Developer Tool" and select "Simulator" (I would then recommend closing Xcode itself, according to some blogs)  
+-Open iPhone Simulator under "Xcode" select "Open Developer Tool" and select "Simulator"  
+(I recommend closing Xcode itself, according to some blogs)  
 
--Deploy to simulator  
+-Deploy to Simulator  
 npx react-native run-ios
