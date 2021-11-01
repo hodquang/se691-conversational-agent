@@ -44,8 +44,7 @@ Using your terminal or IDE (I used VSCode with Github Extension)
 https://github.com/shaquille-hall/se691-conversational-agent.git  
 
 -Add the env.js file  
-Download it and place it in the Chatbot folder  
-https://se691-softwarestudio.slack.com/files/U02H3C0T3LG/F02K7RD1YVB/env.js    
+Download it and place it in the Chatbot folder. It is in the slakc channel (removed link due to security reasons) 
 
 -Change Directory to the Folder Cloned to    
 cd 'folder installed to'  
