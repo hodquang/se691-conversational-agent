@@ -9,6 +9,7 @@
 - get into the root folder for Chatbot
 - Open App.js to view the code
 - env.js contains the dialogflowConfig JSON. Put env.js file into the screens folder!
+- If you get the keyboard.removeListener error. Delete them in the code! The function is deprecated.
 
 # How to edit (VS Code)
 - Open Terminal
