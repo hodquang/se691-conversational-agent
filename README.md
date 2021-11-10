@@ -8,7 +8,7 @@
 # How to view
 - get into the root folder for Chatbot
 - Open App.js to view the code
-- env.js contains the dialogflowConfig JSON
+- env.js contains the dialogflowConfig JSON. Put env.js file into the screens folder!
 
 # How to edit (VS Code)
 - Open Terminal
