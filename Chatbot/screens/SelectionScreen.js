@@ -1,30 +1,26 @@
-// npm install @react-navigation/native
-// npm install react-native-screens react-native-safe-area-context
-// npm install @react-navigation/stack
-// npm install react-native-gesture-handler
-// npm install react-native-elements
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { FlatList, StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
+import { kobe, obama } from './env';
 
 export default class SelectionScreen extends React.Component {
     render() {
-        
+
         return (
             <View style={styles.outsideContainer}>
                 <FlatList
                     data={[
-                        { id: 1, name: 'Barrack Obama', avatar: '../assets/images/obama.jpeg' },
-                        { id: 2, name: 'Michael Jordan', avatar: '../assets/images/jordan.jpeg' },
-                        { id: 3, name: 'Michael Jackson', avatar: '../assets/images/jackson.jpeg' },
-                        { id: 4, name: 'Martin Luther King', avatar: '../assets/images/MLK.jpeg' },
-                        { id: 5, name: 'Abraham Lincoln', avatar: '../assets/images/lincoln.jpeg' },
+                        { id: 1, name: 'Barrack Obama', avatar: '/Users/dannydominguez/chatbot/assets/images/obama.jpeg', importName: 'obama', },
+                        { id: 2, name: 'Michael Jordan', avatar: '/Users/dannydominguez/chatbot/assets/images/jordan.jpeg', importName: 'kobe', },
+                        { id: 3, name: 'Michael Jackson', avatar: '/Users/dannydominguez/chatbot/assets/images/jackson.jpeg' },
+                        { id: 4, name: 'Martin Luther King', avatar: '/Users/dannydominguez/chatbot/assets/images/MLK.jpeg' },
+                        { id: 5, name: 'Abraham Lincoln', avatar: '/Users/dannydominguez/chatbot/assets/images/lincoln.jpeg' },
                     ]}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
                         <TouchableOpacity onPress={() =>
-                            this.props.navigation.navigate('ChatScreen',{name: item.name})}>
+                            this.props.navigation.navigate('ChatScreen', { botName: item.name, botId: item.id, avatar: item.avatar, name: this.props.route.params.name, id: this.props.route.params.id })}>
                             <View style={styles.profile}>
                                 <View style={styles.leftContainer}>
                                     <Image source={{ uri: item.avatar }} style={styles.avatar} />
@@ -80,6 +76,5 @@ const styles = StyleSheet.create({
         height: 60,
         borderRadius: 50,
         marginRight: 15,
-      },
-  });
-
+    },
+});
