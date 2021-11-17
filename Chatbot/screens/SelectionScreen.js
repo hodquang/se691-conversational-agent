@@ -22,7 +22,7 @@ export default class SelectionScreen extends React.Component {
                         <TouchableOpacity onPress={() =>
                             this.props.navigation.navigate('ChatScreen', {
                                 botName: item.name, botId: item.id, avatar: item.avatar,
-                                // name: this.props.route.params.name, id: this.props.route.params.id,
+                                name: this.props.route.params.name, id: this.props.route.params.id,
                             })}>
                             <View style={styles.profile}>
                                 <View style={styles.leftContainer}>

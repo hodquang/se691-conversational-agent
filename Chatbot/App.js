@@ -15,7 +15,7 @@ const Stack = createStackNavigator();
 const MyStack = () => {
   return (
     <Stack.Navigator>
-      {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
+      <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="SelectionScreen" component={SelectionScreen} />
       <Stack.Screen name="ChatScreen" component={ChatScreen} />
     </Stack.Navigator>
