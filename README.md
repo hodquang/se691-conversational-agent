@@ -1,5 +1,8 @@
 # se691-conversational-agent
 
+# Webmining Folder
+- Just look at the WebMining.py file
+
 # Setup (if you want to rebuild it)
 - Make sure Node version is up-to-date (npm install)
 - Install: react-native
