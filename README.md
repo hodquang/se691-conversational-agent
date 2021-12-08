@@ -26,6 +26,8 @@
   + Xcode Simulator
   + Android Studio (https://developer.android.com/studio/?gclid=CjwKCAjw_L6LBhBbEiwA4c46ukIoqLbJjZGt7VPSEXEXGdLBYnZbhEaUxM7AuPrho1QaXDcV82lonRoCGKEQAvD_BwE&gclsrc=aw.ds)
 
+# Video Demonstration
+https://youtu.be/6XhGoa4OO2w
 
 # Setup From Scratch on M1 w/ Rosetta (similar to non-M1)
 
