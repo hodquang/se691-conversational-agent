@@ -11,7 +11,7 @@ export default class SelectionScreen extends React.Component {
             <View style={styles.outsideContainer}>
                 <FlatList
                     data={[
-                        { id: 1, name: 'Barrack Obama', avatar: '/Users/quangho/se691/Chatbot/assets/images/obama.jpeg', importName: 'obama', },
+                        { id: 1, name: 'Barack Obama', avatar: '/Users/quangho/se691/Chatbot/assets/images/obama.jpeg', importName: 'obama', },
                         { id: 2, name: 'Michael Jordan', avatar: '/Users/quangho/se691/Chatbot/assets/images/jordan.jpeg', importName: 'kobe', },
                         { id: 3, name: 'Michael Jackson', avatar: '/Users/quangho/se691/Chatbot/assets/images/jackson.jpeg' },
                         { id: 4, name: 'Martin Luther King', avatar: '/Users/quangho/se691/Chatbot/assets/images/MLK.jpeg' },

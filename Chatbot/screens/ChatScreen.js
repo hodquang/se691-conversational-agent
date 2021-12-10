@@ -25,7 +25,7 @@ export default class ChatScreen extends Component {
 
   componentDidMount = () => {
     var dialogflowConfig = {
-      'Barrack Obama': obama,
+      'Barack Obama': obama,
       'Michael Jordan': kobe,
     };
 
