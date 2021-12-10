@@ -1,17 +1,19 @@
 # se691-conversational-agent
 
-# Webmining Folder
-- Just look at the WebMining.py file
+# Folder Structure
+- Chatbot: The main source code folder for the application
+- Datasets: The dataset used to feed the agent. All the data has already been fed into DialogFlow Agent online.
+- Webmining: The in-progress Python script for web scrapping online text into topics and sentences. Mainly look at WebMining.py file.
 
-# Setup (if you want to rebuild it)
-- Make sure Node version is up-to-date (npm install)
-- Install: react-native
-- Install: react-native-dialogflow, react-native-voice, react-native-gifted-chat
+# If you want to build it from scratch (Don't recommend) 
+# Initial Setup
+- Install node.js (https://nodejs.org/en/)
+- Install: react-native (https://reactnative.dev/docs/environment-setup)
+- Install: react-native-dialogflow, react-native-voice, react-native-gifted-chat (with npm install)
 
 # How to view
 - get into the root folder for Chatbot
 - Open App.js to view the code
-- env.js contains the dialogflowConfig JSON. Put env.js file into the screens folder!
 - If you get the keyboard.removeListener error. Delete them in the code! The function is deprecated.
 
 # How to edit (VS Code)
@@ -48,9 +50,6 @@ sudo gem install ffi
 -Clone the repository from Github  
 Using your terminal or IDE (I used VSCode with Github Extension)  
 https://github.com/shaquille-hall/se691-conversational-agent.git  
-
--Add the env.js file  
-Download it and place it in the Chatbot folder. It is in the slakc channel (removed link due to security reasons) 
 
 -Change Directory to the Folder Cloned to    
 cd 'folder installed to'  
