@@ -111,7 +111,22 @@ export default class ChatScreen extends Component {
   }
 
   handleGoogleResponse(result) {
-    let text = result.queryResult.fulfillmentMessages[0].text.text[0];
+    // Dialogflow returns answers of three kinds:
+    //    queryResult, alternativeQueryResults, and knowledgeAnswers
+    // We need to process all three to determine a useful response for the client.
+
+    var text
+    if (result.queryResult.fulfillmentMessages) {
+      console.log("query result = ", result.queryResult.fulfillmentMessages[0].text.text[0]);
+      text = result.queryResult.fulfillmentMessages[0].text.text[0];
+    } else if (result.queryResult.knowledgeAnswers) {
+      console.log("knowledge answers = ", result.queryResult.knowledgeAnswers.answers[0].answer);
+      text = result.queryResult.knowledgeAnswers.answers[0].answer;
+    } else if (result.alternativeQueryResults) {
+      console.log("alternative result = ", result.alternativeQueryResults.fulfilmentText);
+      text = result.alternativeQueryResults.fulfilmentText;
+    }
+ 
     this.sendBotResponse(text);
   }
 
