@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { Dialogflow_V2 } from 'react-native-dialogflow';
 import firestore from '@react-native-firebase/firestore';
-import { michaelJordan, barrackObama, michaelJackson, martinLutherKingJr, abrahamLincoln } from './env';
+import { michaelJordan, barackObama, michaelJackson, martinLutherKingJr, abrahamLincoln } from './env';
 
 
 export default class ChatScreen extends React.Component {
@@ -22,8 +22,9 @@ export default class ChatScreen extends React.Component {
 
 
   componentDidMount = () => {
+    const { botName, avatar, name, id } = this.props.route.params;
     var dialogflowConfig = {
-      'Barack Obama': barrackObama,
+      'Barack Obama': barackObama,
       'Michael Jordan': michaelJordan,
       'Michael Jackson': michaelJackson,
       'Martin Luther King Jr.': martinLutherKingJr,
@@ -31,17 +32,17 @@ export default class ChatScreen extends React.Component {
     };
 
     Dialogflow_V2.setConfiguration(
-      dialogflowConfig[this.props.route.params.botName].client_email,
-      dialogflowConfig[this.props.route.params.botName].private_key,
+      dialogflowConfig[botName].client_email,
+      dialogflowConfig[botName].private_key,
       Dialogflow_V2.LANG_ENGLISH_US,
-      dialogflowConfig[this.props.route.params.botName].project_id,
+      dialogflowConfig[botName].project_id,
     );
-    const { botName, avatar, name, id } = this.props.route.params;
+
     firestore()
-      .collection(this.props.route.params.botName)
-      .doc(id)
+      .collection(botName)
+      .doc(name)
       .collection('MESSAGES')
-      .orderBy('createdAt', 'desc')
+      .orderBy('created', 'desc')
       .limit(100)
       .get()
       .then((snapshot) => {
@@ -50,7 +51,7 @@ export default class ChatScreen extends React.Component {
           const data = {
             _id: doc.id,
             text: doc.text,
-            createdAt: new Date().getTime(),
+            created: new Date().toISOString().slice(0, 19).replace('T', ' '),
             ...firebaseData,
           };
 
@@ -66,14 +67,15 @@ export default class ChatScreen extends React.Component {
         if (messages.length > 0) {
           this.setState({ name, id, messages });
         } else {
-          this.setState({
-            name,
-            id,
-            messages: [
-              { _id: 2, text: 'My name is ' + this.props.route.params.botName + '.', createdAt: new Date().getTime(), user: this.BOT },
-              { _id: 1, text: 'Hi', createdAt: new Date().getTime(), user: this.BOT }
-            ],
-          });
+
+          this.sendBotResponse('Hi, my name is ' + botName + '.')
+          // this.setState({
+          //   name,
+          //   id,
+          //   messages: [
+          //     { _id: 1, text: 'Hi, my name is ' + botName + '.', created: new Date().toISOString().slice(0, 19).replace('T', ' '), user: this.BOT },
+          //   ],
+          // });
         }
       })
       .catch(function (err) {
@@ -91,12 +93,15 @@ export default class ChatScreen extends React.Component {
     const { botName, avatar, name, id } = this.props.route.params;
 
     firestore()
-      .collection(this.props.route.params.botName)
-      .doc(id)
+      .collection(botName)
+      .doc(name)
       .collection('MESSAGES')
       .add({
         text,
-        createdAt: new Date().getTime(),
+        created: new Date().toISOString().slice(0, 19).replace('T', ' '),
+        message_from: name,
+        message_to: botName,
+        role_model: botName,
         user: {
           _id: 1,
           name: name,
@@ -112,10 +117,6 @@ export default class ChatScreen extends React.Component {
   }
 
   handleGoogleResponse(result) {
-    // Dialogflow returns answers of three kinds:
-    //    queryResult, alternativeQueryResults, and knowledgeAnswers
-    // We need to process all three to determine a useful response for the client.
-
     var text
     if (result.queryResult.fulfillmentMessages) {
       console.log("query result = ", result.queryResult.fulfillmentMessages[0].text.text[0]);
@@ -128,21 +129,27 @@ export default class ChatScreen extends React.Component {
       text = result.alternativeQueryResults.fulfilmentText;
     }
 
+
+
     this.sendBotResponse(text);
   }
 
   sendBotResponse(text) {
+    const { botName, avatar, name, id } = this.props.route.params;
     let msg = {
       text,
-      createdAt: new Date().getTime(),
+      created: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      messageFrom: botName,
+      messageTo: name,
+      role_model: botName,
       user: this.BOT,
     };
 
-    const { botName, avatar, name, id } = this.props.route.params;
+
 
     firestore()
-      .collection(this.props.route.params.botName)
-      .doc(id)
+      .collection(botName)
+      .doc(name)
       .collection('MESSAGES')
       .add(msg);
 
