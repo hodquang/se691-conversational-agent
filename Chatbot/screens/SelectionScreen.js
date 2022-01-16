@@ -1,8 +1,6 @@
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { FlatList, StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
-import { List, ListItem } from 'react-native-elements';
-import { kobe, obama } from './env';
+
 
 export default class SelectionScreen extends React.Component {
     render() {
@@ -11,11 +9,11 @@ export default class SelectionScreen extends React.Component {
             <View style={styles.outsideContainer}>
                 <FlatList
                     data={[
-                        { id: 1, name: 'Barack Obama', avatar: '/Users/quangho/se691/Chatbot/assets/images/obama.jpeg', importName: 'obama', },
-                        { id: 2, name: 'Michael Jordan', avatar: '/Users/quangho/se691/Chatbot/assets/images/jordan.jpeg', importName: 'kobe', },
-                        { id: 3, name: 'Michael Jackson', avatar: '/Users/quangho/se691/Chatbot/assets/images/jackson.jpeg' },
-                        { id: 4, name: 'Martin Luther King', avatar: '/Users/quangho/se691/Chatbot/assets/images/MLK.jpeg' },
-                        { id: 5, name: 'Abraham Lincoln', avatar: '/Users/quangho/se691/Chatbot/assets/images/lincoln.jpeg' },
+                        { id: 1, name: 'Barack Obama', avatar: '/Users/dannydominguez/se691-conversational-agent/Chatbot/assets/images/obama.jpeg' },
+                        { id: 2, name: 'Michael Jordan', avatar: '/Users/dannydominguez/se691-conversational-agent/Chatbot/assets/images/jordan.jpeg' },
+                        { id: 3, name: 'Michael Jackson', avatar: '/Users/dannydominguez/se691-conversational-agent/Chatbot/assets/images/jackson.jpeg' },
+                        { id: 4, name: 'Martin Luther King', avatar: '/Users/dannydominguez/se691-conversational-agent/Chatbot/assets/images/MLK.jpeg' },
+                        { id: 5, name: 'Abraham Lincoln', avatar: '/Users/dannydominguez/se691-conversational-agent/Chatbot/assets/images/lincoln.jpeg' },
                     ]}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
@@ -43,7 +41,7 @@ export default class SelectionScreen extends React.Component {
 const styles = StyleSheet.create({
     outsideContainer: {
         flex: 1,
-        alignItems: 'center',
+        alignItems: 'baseline',
         justifyContent: 'center',
     },
     container: {
@@ -71,7 +69,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
     agentName: {
-        fontSize: 16,
+        fontSize: 20,
         fontWeight: 'bold',
     },
     avatar: {

@@ -4,10 +4,10 @@ import { View, Text } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { Dialogflow_V2 } from 'react-native-dialogflow';
 import firestore from '@react-native-firebase/firestore';
-import { obama, kobe } from './env';
+import { michaelJordan, barrackObama, michaelJackson, martinLutherKingJr, abrahamLincoln } from './env';
 
 
-export default class ChatScreen extends Component {
+export default class ChatScreen extends React.Component {
   BOT = {
     _id: 2,
     name: this.props.route.params.botName,
@@ -21,12 +21,13 @@ export default class ChatScreen extends Component {
   }
 
 
-
-
   componentDidMount = () => {
     var dialogflowConfig = {
-      'Barack Obama': obama,
-      'Michael Jordan': kobe,
+      'Barack Obama': barrackObama,
+      'Michael Jordan': michaelJordan,
+      'Michael Jackson': michaelJackson,
+      'Martin Luther King Jr.': martinLutherKingJr,
+      'Abraham Lincoln': abrahamLincoln,
     };
 
     Dialogflow_V2.setConfiguration(
@@ -126,7 +127,7 @@ export default class ChatScreen extends Component {
       console.log("alternative result = ", result.alternativeQueryResults.fulfilmentText);
       text = result.alternativeQueryResults.fulfilmentText;
     }
- 
+
     this.sendBotResponse(text);
   }
 
