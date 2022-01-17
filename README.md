@@ -56,6 +56,8 @@ pod install
   - removeListener is in node-modules/react-native-gifted-chat/lib/MessageContainer.js
   - replace it with the following code (https://imgur.com/a/0AhVK3m)
 
+- Change path of avatar picture in lines 10-14 in SelectionScreen.js to properly view pictures of avatars. 
+
 - Change Directory back into the Chatbot (pod install kicks me out as well)  
 cd se691-conversational-agent/Chatbot/
 
