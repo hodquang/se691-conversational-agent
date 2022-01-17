@@ -6,8 +6,7 @@ import { Dialogflow_V2 } from 'react-native-dialogflow';
 import firestore from '@react-native-firebase/firestore';
 import { michaelJordan, barackObama, michaelJackson, martinLutherKingJr, abrahamLincoln } from './env';
 
-
-export default class ChatScreen extends React.Component {
+export default class ChatScreen extends Component {
   BOT = {
     _id: 2,
     name: this.props.route.params.botName,
@@ -19,7 +18,6 @@ export default class ChatScreen extends React.Component {
     id: 1,
     name: '',
   }
-
 
   componentDidMount = () => {
     const { botName, avatar, name, id } = this.props.route.params;
@@ -67,21 +65,12 @@ export default class ChatScreen extends React.Component {
         if (messages.length > 0) {
           this.setState({ name, id, messages });
         } else {
-
           this.sendBotResponse('Hi, my name is ' + botName + '.')
-          // this.setState({
-          //   name,
-          //   id,
-          //   messages: [
-          //     { _id: 1, text: 'Hi, my name is ' + botName + '.', created: new Date().toISOString().slice(0, 19).replace('T', ' '), user: this.BOT },
-          //   ],
-          // });
         }
       })
       .catch(function (err) {
         console.log(err);
       });
-
   }
 
   onSend(messages = []) {
@@ -108,7 +97,6 @@ export default class ChatScreen extends React.Component {
         },
       });
 
-
     Dialogflow_V2.requestQuery(
       text,
       (result) => this.handleGoogleResponse(result),
@@ -128,9 +116,6 @@ export default class ChatScreen extends React.Component {
       console.log("alternative result = ", result.alternativeQueryResults.fulfilmentText);
       text = result.alternativeQueryResults.fulfilmentText;
     }
-
-
-
     this.sendBotResponse(text);
   }
 
@@ -144,8 +129,6 @@ export default class ChatScreen extends React.Component {
       role_model: botName,
       user: this.BOT,
     };
-
-
 
     firestore()
       .collection(botName)

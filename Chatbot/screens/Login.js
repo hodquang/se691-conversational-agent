@@ -5,7 +5,6 @@ import auth from '@react-native-firebase/auth';
 
 
 export default function Login({ navigation }) {
-
     const [loggedIn, setLoggedIn] = useState(false);
     const [user, setUser] = useState([]);
 
@@ -39,9 +38,7 @@ export default function Login({ navigation }) {
             } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
                 alert('Play Services Not Available');
             } else {
-
             }
-
         }
     };
 
@@ -54,7 +51,6 @@ export default function Login({ navigation }) {
         } catch (error) {
             console.log(error);
         }
-
     }
 
     return (

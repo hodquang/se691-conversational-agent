@@ -1,10 +1,8 @@
 import React from 'react';
 import { FlatList, StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
 
-
 export default class SelectionScreen extends React.Component {
     render() {
-
         return (
             <View style={styles.outsideContainer}>
                 <FlatList
