@@ -11,8 +11,9 @@ https://youtu.be/6XhGoa4OO2w
 # How to view
 - get into the root folder for Chatbot
 - Open App.js to view the code
-- If you get the keyboard.removeListener error. Delete them in the code! The function is deprecated.
-
+- If you get the keyboard.removeListener error. Delete them in the code! 
+  - removeListener is in node-modules/react-native-gifted-chat/lib/MessageContainer.js
+  - replace it with the following code (https://imgur.com/a/0AhVK3m)
 # How to edit (VS Code)
 - Open Terminal
 - cd ~/Chatbot (just make sure you are in the root directory)
