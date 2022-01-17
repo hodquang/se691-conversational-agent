@@ -52,6 +52,10 @@ cd se691-conversational-agent/Chatbot/ios
 - Install Cocoapod Dependencies (results: https://imgur.com/a/KAiisnK)   
 pod install  
 
+- Update keyboard.removeListener in the code! 
+  - removeListener is in node-modules/react-native-gifted-chat/lib/MessageContainer.js
+  - replace it with the following code (https://imgur.com/a/0AhVK3m)
+
 - Change Directory back into the Chatbot (pod install kicks me out as well)  
 cd se691-conversational-agent/Chatbot/
 
