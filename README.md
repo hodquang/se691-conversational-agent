@@ -66,3 +66,23 @@ cd se691-conversational-agent/Chatbot/
 - If the simulator doesn't show up, you can open the simulator manually with:
   + Xcode/iPhone Simulator
   + Android Studio (https://developer.android.com/studio/?gclid=CjwKCAjw_L6LBhBbEiwA4c46ukIoqLbJjZGt7VPSEXEXGdLBYnZbhEaUxM7AuPrho1QaXDcV82lonRoCGKEQAvD_BwE&gclsrc=aw.ds)
+
+# How to run (for WindowsOS) (order i got it to work and replicated it)
+
+- Clone the repository from Github  
+
+-Using your terminal or IDE (I used Github Desktop Application)  
+https://github.com/shaquille-hall/se691-conversational-agent.git  
+
+-Run Powershell as Administrator
+
+-Run the following commands (
+npx yarn install
+npx npm install
+
+-Open Chatbot/android folder in Android Studio, and wait for it to import packages.
+
+-npx react-native run-android 
+Between emulator launch and building app, should take about 5 minutes 
+
+Will have a Listener bug of some sort
