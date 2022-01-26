@@ -75,6 +75,8 @@ cd se691-conversational-agent/Chatbot/
   + https://github.com/shaquille-hall/se691-conversational-agent.git  
 
 - Run Powershell as Administrator
+ 
+- cd to /Chatbot folder
 
 - Run the following commands
   + npx npm install
