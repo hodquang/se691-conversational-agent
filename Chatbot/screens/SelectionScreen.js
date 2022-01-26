@@ -7,11 +7,11 @@ export default class SelectionScreen extends React.Component {
             <View style={styles.outsideContainer}>
                 <FlatList
                     data={[
-                        { id: 1, name: 'Barack Obama', avatar: '/Users/dannydominguez/se691-conversational-agent/Chatbot/assets/images/obama.jpeg' },
-                        { id: 2, name: 'Michael Jordan', avatar: '/Users/dannydominguez/se691-conversational-agent/Chatbot/assets/images/jordan.jpeg' },
-                        { id: 3, name: 'Michael Jackson', avatar: '/Users/dannydominguez/se691-conversational-agent/Chatbot/assets/images/jackson.jpeg' },
-                        { id: 4, name: 'Martin Luther King', avatar: '/Users/dannydominguez/se691-conversational-agent/Chatbot/assets/images/MLK.jpeg' },
-                        { id: 5, name: 'Abraham Lincoln', avatar: '/Users/dannydominguez/se691-conversational-agent/Chatbot/assets/images/lincoln.jpeg' },
+                        { id: 1, name: 'Barack Obama', avatar: 'https://i.imgur.com/VOuhiDX.jpg'},
+                        { id: 2, name: 'Michael Jordan', avatar: 'https://i.imgur.com/5UXY6FY.jpg' },
+                        { id: 3, name: 'Michael Jackson', avatar: 'https://i.imgur.com/YwOYbkO.jpeg'},
+                        { id: 4, name: 'Martin Luther King', avatar: 'https://i.imgur.com/lNxnRrc.jpg' },
+                        { id: 5, name: 'Abraham Lincoln', avatar: 'https://i.imgur.com/yEto3mq.jpeg' },
                     ]}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
