@@ -71,17 +71,18 @@ cd se691-conversational-agent/Chatbot/
 
 - Clone the repository from Github  
 
--Using your terminal or IDE (I used Github Desktop Application)  
-https://github.com/shaquille-hall/se691-conversational-agent.git  
+- Using your terminal or IDE (I used Github Desktop Application)  
+  + https://github.com/shaquille-hall/se691-conversational-agent.git  
 
--Run Powershell as Administrator
+- Run Powershell as Administrator
 
--Run the following commands
-npx npm install
+- Run the following commands
+  + npx npm install
+  + npx yarn install (not sure if this one is 100% necessary, but did run it)
 
--Open Chatbot/android folder in Android Studio, and wait for it to import packages.
+- Open Chatbot/android folder in Android Studio, and wait for it to import packages.
 
--npx react-native run-android 
-Between emulator launch and building app, should take about 5 minutes 
+- npx react-native run-android 
+  + Between emulator launch and building app, should take about 5 minutes 
 
-Will have a Listener bug of some sort
+- Will have a Listener bug of some sort
