@@ -76,8 +76,7 @@ https://github.com/shaquille-hall/se691-conversational-agent.git
 
 -Run Powershell as Administrator
 
--Run the following commands (
-npx yarn install
+-Run the following commands
 npx npm install
 
 -Open Chatbot/android folder in Android Studio, and wait for it to import packages.
