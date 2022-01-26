@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, SafeAreaView } from 'react-native';
-import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-community/google-signin';
+import { GoogleSignin, GoogleSigninButton } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 
 
@@ -9,11 +9,6 @@ export default function Login({ navigation }) {
     const [user, setUser] = useState([]);
 
     useEffect(() => {
-        GoogleSignin.configure({
-            scopes: ['email'],
-            webClientId: '11544258142-fgvefcmtnliibvntpdq1t79cgjj53s92.apps.googleusercontent.com',
-            offlineAcces: true
-        })
         const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
         return subscriber;
     })
@@ -22,25 +17,21 @@ export default function Login({ navigation }) {
         setUser(user);
         if (user) setLoggedIn(true);
     }
+    GoogleSignin.configure({
+        webClientId: '11544258142-5fogdf3n26l54e0ljt37l5eku9l3574l.apps.googleusercontent.com'
+    })
 
-    _signIn = async () => {
-        try {
-            await GoogleSignin.hasPlayServices();
-            const { accessToken, idToken } = await GoogleSignin.signIn();
-            setLoggedIn(true);
-            const credential = auth.GoogleAuthProvider.credential(idToken, accessToken);
-            await auth().signInWithCredential(credential);
-        } catch (error) {
-            if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-                alert('Cancel');
-            } else if (error.code === statusCodes.IN_PROGRESS) {
-                alert('Sigin in Progress');
-            } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-                alert('Play Services Not Available');
-            } else {
-            }
-        }
-    };
+    const signInWithGoogleAsync = async () => {
+        const { idToken } = await GoogleSignin.signIn();
+        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+        const user_sign_in = auth().signInWithCredential(googleCredential);
+        user_sign_in.then((user)=>{
+            //console.log(user);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
 
     signOut = async () => {
         try {
@@ -49,12 +40,11 @@ export default function Login({ navigation }) {
             auth().signOut().then(() => alert('You are signed out.'));
             setLoggedIn(false);
         } catch (error) {
-            console.log(error);
+          console.error(error);
         }
-    }
+      };
 
     return (
-        <>
             <SafeAreaView>
                 <View style={{ justifyContent: 'center', alignItems: 'center', height: 500 }}>
                     {user ? (
@@ -65,7 +55,7 @@ export default function Login({ navigation }) {
                                 id: user.uid
                             })}
                             />
-                            <Button onPress={this.signOut} title="Logout" color="red" />
+                            <Button onPress={signOut} title="Logout" color="red" />
                         </View>
                     )
                         :
@@ -75,11 +65,11 @@ export default function Login({ navigation }) {
                                 <GoogleSigninButton style={{ width: 192, height: 48 }}
                                     size={GoogleSigninButton.Size.Wide}
                                     color={GoogleSigninButton.Color.Dark}
-                                    onPress={this._signIn} />
+                                    onPress={signInWithGoogleAsync} />
                             </View>
                         )}
                 </View>
             </SafeAreaView>
-        </>
+
     );
 }
