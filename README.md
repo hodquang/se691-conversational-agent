@@ -73,10 +73,12 @@ cd se691-conversational-agent/Chatbot/
 - Install Android Studio (also install Android Virtual Device) - https://developer.android.com/studio
 - In Android Studio download the latest Android Sdk
 - If needed, click on the root node in the file tree
-  + FILE -> PROJECT STRUCTURE
-  + Project Settings -> Project -> Project SDK -> <select an SDK>
-  + Project Settings -> Modules -> <Select + button> -> Android -> OK
+  - FILE -> PROJECT STRUCTURE
+  - Project Settings -> Project -> Project SDK -> <select an SDK>
+  - Project Settings -> Modules -> <Select + button> -> Android -> OK
+
 - Create a virtual device - https://developer.android.com/studio/run/managing-avds
+ 
   
 - Run Powershell as Administrator
  
