@@ -67,13 +67,17 @@ cd se691-conversational-agent/Chatbot/
   + Xcode/iPhone Simulator
   + Android Studio (https://developer.android.com/studio/?gclid=CjwKCAjw_L6LBhBbEiwA4c46ukIoqLbJjZGt7VPSEXEXGdLBYnZbhEaUxM7AuPrho1QaXDcV82lonRoCGKEQAvD_BwE&gclsrc=aw.ds)
 
-# How to run (for WindowsOS) (order i got it to work and replicated it)
+# How to run (for WindowsOS)
 
-- Clone the repository from Github  
-
-- Using your terminal or IDE (I used Github Desktop Application)  
-  + https://github.com/shaquille-hall/se691-conversational-agent.git  
-
+- Clone the repository from Github
+- Install Android Studio (also install Android Virtual Device) - https://developer.android.com/studio
+- In Android Studio download the latest Android Sdk
+- If needed, click on the root node in the file tree
+  + FILE -> PROJECT STRUCTURE
+  + Project Settings -> Project -> Project SDK -> <select an SDK>
+  + Project Settings -> Modules -> <Select + button> -> Android -> OK
+- Create a virtual device - https://developer.android.com/studio/run/managing-avds
+  
 - Run Powershell as Administrator
  
 - cd to /Chatbot folder
