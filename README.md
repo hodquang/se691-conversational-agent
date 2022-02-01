@@ -64,33 +64,31 @@ cd se691-conversational-agent/Chatbot/
 - react-native run-ios (or npx react-native run-ios)
 - react-native run-android (under "Xcode" select "Open Developer Tool" and select "Simulator")
 - If the simulator doesn't show up, you can open the simulator manually with:
-  + Xcode/iPhone Simulator
-  + Android Studio (https://developer.android.com/studio/?gclid=CjwKCAjw_L6LBhBbEiwA4c46ukIoqLbJjZGt7VPSEXEXGdLBYnZbhEaUxM7AuPrho1QaXDcV82lonRoCGKEQAvD_BwE&gclsrc=aw.ds)
+  - Xcode/iPhone Simulator
+  - Android Studio (https://developer.android.com/studio/?gclid=CjwKCAjw_L6LBhBbEiwA4c46ukIoqLbJjZGt7VPSEXEXGdLBYnZbhEaUxM7AuPrho1QaXDcV82lonRoCGKEQAvD_BwE&gclsrc=aw.ds)
 
 # How to run (for WindowsOS)
 
+- Install Node.js and npm - https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 - Clone the repository from Github
 - Install Android Studio (also install Android Virtual Device) - https://developer.android.com/studio
 - In Android Studio download the latest Android Sdk
+- Open Chatbot in Android Studio
+- Add a file local.properties to se691-conversational-agent\Chatbot\android with the path to your SDK (example below)
+  - sdk.dir=C:\\Users\\user\\AppData\\Local\\Android\\Sdk
 - If needed, click on the root node in the file tree
   - FILE -> PROJECT STRUCTURE
-  - Project Settings -> Project -> Project SDK -> <select an SDK>
-  - Project Settings -> Modules -> <Select + button> -> Android -> OK
-
+  - Project Settings -> Project -> Project SDK -> select an SDK
+  - Project Settings -> Modules -> select + button -> Android -> OK
 - Create a virtual device - https://developer.android.com/studio/run/managing-avds
- 
-  
+- Run the virtual device
 - Run Powershell as Administrator
- 
 - cd to /Chatbot folder
-
 - Run the following commands
-  + npx npm install
-  + npx yarn install (not sure if this one is 100% necessary, but did run it)
 
-- Open Chatbot/android folder in Android Studio, and wait for it to import packages.
-
-- npx react-native run-android 
-  + Between emulator launch and building app, should take about 5 minutes 
+  `npx npm install`
+  
+  `npx react-native run-android`
+    - Between emulator launch and building app, should take about 5 minutes 
 
 - Will have a Listener bug of some sort
