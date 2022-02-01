@@ -72,7 +72,7 @@ cd se691-conversational-agent/Chatbot/
 - Install Node.js and npm - https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 - Clone the repository from Github
 - Install Android Studio (also install Android Virtual Device) - https://developer.android.com/studio
-- In Android Studio download the latest Android Sdk
+- In Android Studio download the Android 12.0 Sdk
 - Open Chatbot in Android Studio
 - Add a file local.properties to se691-conversational-agent\Chatbot\android with the path to your SDK (example below)
   - sdk.dir=C:\\Users\\user\\AppData\\Local\\Android\\Sdk
@@ -81,6 +81,7 @@ cd se691-conversational-agent/Chatbot/
   - Project Settings -> Project -> Project SDK -> select an SDK
   - Project Settings -> Modules -> select + button -> Android -> OK
 - Create a virtual device - https://developer.android.com/studio/run/managing-avds
+  - Choose a phone with the play store available and run with Android 12
 - Run the virtual device
 - Run Powershell as Administrator
 - cd to /Chatbot folder
