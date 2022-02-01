@@ -90,6 +90,6 @@ cd se691-conversational-agent/Chatbot/
   `npx npm install`
   
   `npx react-native run-android`
-    - Between emulator launch and building app, should take about 5 minutes 
+    - Between emulator launch and building app, should take about 3 minutes 
 
-- Will have a Listener bug of some sort
+- If you see an error like "Installed Build Tools revision 31.0.0 is corrupted" follow the top answer here to rename the specified files -  hInstalled Build Tools revision 31.0.0 is corrupted" https://stackoverflow.com/questions/68387270/android-studio-error-installed-build-tools-revision-31-0-0-is-corrupted
