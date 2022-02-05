@@ -1,22 +1,36 @@
-import urllib.request
+""" Conversational Agent Scraper
+This module scrapes data from Wikipedia and dumps it into a k:v csv file
+of keywords to sentence, where ach keyword is a defining part of the sentence.
 
+Input:
+	- articles.py: wikipedia urls to scrape
+
+Output:
+	- {name}.csv: name is the name of the role model, which corresponds \
+			to the title of the Wikipedia page scraped
+
+Flags:
+	- --no-enable-pov-converter: Bool to convert Wikipedia sentence from first person \ 
+				to third person speech. This logic lives in pov_converter.py
+"""
+
+import argparse
 import csv
-import requests
 import re
 import spacy
-from urllib.parse import urlparse
 import wikipedia
-# might also need pip3 install wikipedia_sections
+from urllib.parse import urlparse
+from spacy.tokenizer import Tokenizer
 
-import articles 
-
-from bs4 import BeautifulSoup
-from transformers import pipeline
-
-import nltk
+# Could be useful if we want to process synonyms
+#import nltk
 #nltk.download('omw-1.4')
 #nltk.download('wordnet')
-from nltk.corpus import wordnet
+#from nltk.corpus import wordnet
+
+# Local imports from this directory
+import articles 
+import pov_converter
 
 def parse_wikipedia(link):
 	UNNECESSARY_SECTIONS = ['Notes', 'References', 'Citations', 'Print sources', 'Further reading', 'External links']
@@ -34,9 +48,6 @@ def parse_wikipedia(link):
 
 	return topic.split("_"), content
 
-def update_pov(sentence):
-	pass
-
 def get_keywords(topic_entries, doc_sentence):
 	kw = []
 		
@@ -48,39 +59,74 @@ def get_keywords(topic_entries, doc_sentence):
 	return list(keywords)	
 
 def main():
+	parser = argparse.ArgumentParser(description='Scrape Wikipedia and dump text to csv file.')
+	parser.add_argument("--no-enable-pov-converter", action="store_false")	# True if not set
+
+	args = parser.parse_args()
+	print("args = {}".format(args))
+	enable_pov_converter = args.no_enable_pov_converter
+
+	print("enable_pov_converter = {}".format(enable_pov_converter))
+	
 	for link in articles.URLS_TO_PARSE:
 		text = ""
+		topic_entries = []  # Title of Wikipedia page. Typically the persons's name
 
 		if "wikipedia.org" in urlparse(link).netloc:	
 			topic_entries, text = parse_wikipedia(link)
+		
+		# Topic should contain [first_name, last_name, first_name last_name]
+		topic_entries.append(" ".join(topic_entries))  # Add first_name last_name
 
-		topic_entries.append(" ".join(topic_entries))
-		print("topic_entries = ", topic_entries)
+		if enable_pov_converter:
+			valid_names, invalid_names = pov_converter.get_valid_name_opts(topic_entries)
+			pov_mapper = pov_converter.build_pov_map(valid_names, invalid_names)
 
 		if text == "":
 			# log error and return
 			return
 
 		nlp = spacy.load('en_core_web_sm')
+		nlp.tokenizer = Tokenizer(nlp.vocab)
 		doc = nlp(text)
-		sentences = list(doc.sents)
+
 		keywords = []
+		updated_sentences = []
+		doc_sentences = list(doc.sents)
+	
+		MAX = len(doc_sentences)  # Decrease if processing takes too long
+		sentences = doc_sentences[:MAX]
 		for s	in sentences:
 			kw = get_keywords(topic_entries, s)
 			keywords.append(kw)
+			if enable_pov_converter:
+				updated_sentences.append(pov_converter.update_pov(topic_entries[0], kw, s, pov_mapper))
 
+		final_sentences = []
+		if updated_sentences:
+			final_sentences = updated_sentences
+		else:
+			final_sentences = [s.text for s in sentences]
+		
 		scraper_output = "_".join(topic_entries[:-1]) + ".csv"
 		fields = ["Keywords", "Sentence"]
-
 		with open(scraper_output, "w") as csvfile:
 			csvwriter = csv.writer(csvfile)
 			csvwriter.writerow(fields)
 	
 			# Only write the first 50 sentences to the file
 			# Not quite sure yet what happens if we expand this.	
-			for i in range(50):
+			count = 0
+			for i in range(MAX):
 				for k in keywords[i]:
-					csvwriter.writerow([k] + [sentences[i].text])
+					# Number of k,v pairs must be <= 2k
+					# https://cloud.google.com/dialogflow/es/docs/how/knowledge-bases
+					print("count = {}".format(count))
+					if count < 1995:
+						csvwriter.writerow([k] + [final_sentences[i]])
+					else:
+						break
+					count += 1
 
 main()
 
