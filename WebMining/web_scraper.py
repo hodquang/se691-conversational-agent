@@ -63,11 +63,8 @@ def main():
 	parser.add_argument("--no-enable-pov-converter", action="store_false")	# True if not set
 
 	args = parser.parse_args()
-	print("args = {}".format(args))
 	enable_pov_converter = args.no_enable_pov_converter
 
-	print("enable_pov_converter = {}".format(enable_pov_converter))
-	
 	for link in articles.URLS_TO_PARSE:
 		text = ""
 		topic_entries = []  # Title of Wikipedia page. Typically the persons's name
@@ -121,7 +118,6 @@ def main():
 				for k in keywords[i]:
 					# Number of k,v pairs must be <= 2k
 					# https://cloud.google.com/dialogflow/es/docs/how/knowledge-bases
-					print("count = {}".format(count))
 					if count < 1995:
 						csvwriter.writerow([k] + [final_sentences[i]])
 					else:

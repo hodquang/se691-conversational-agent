@@ -64,9 +64,6 @@ def get_valid_name_opts(topics):
 	for name in prohibited_names_product:
 		prohibited_names.append(" ".join(name).strip())
 
-	# print("allowed_names = ", allowed_names)
-	# print("prohibited_names = ", prohibited_names)
-
 	return allowed_names, prohibited_names
 
 def build_pov_map(valid_names, invalid_names):
