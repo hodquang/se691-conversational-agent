@@ -33,7 +33,9 @@ Python3 - I ran Python 3.9.9 and can only confirm that version works. As such, w
 Some tools may have been helpful while building this module but unfortunately they weren't available at the time. It be useful to reevaluate them at a later date. 
 
 *[Grammarly](https://developer.grammarly.com/docs/)
+
 *[Sapling](https://sapling.ai/)
+
 *[Google LaMDA](https://blog.google/technology/ai/lamda/)
 
 
