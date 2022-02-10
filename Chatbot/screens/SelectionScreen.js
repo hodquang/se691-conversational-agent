@@ -5,7 +5,7 @@ export default class SelectionScreen extends React.Component {
     render() {
         return (
             <View style={styles.outsideContainer}>
-                <FlatList
+                <FlatList TestID = "list"
                     data={[
                         { id: 1, name: 'Barack Obama', avatar: 'https://i.imgur.com/VOuhiDX.jpg'},
                         { id: 2, name: 'Michael Jordan', avatar: 'https://i.imgur.com/5UXY6FY.jpg' },

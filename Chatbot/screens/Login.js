@@ -50,7 +50,8 @@ export default function Login({ navigation }) {
                     {user ? (
                         <View style={{ alignItems: 'center' }}>
                             <Text>Welcome {user.displayName}</Text>
-                            <Button title="Go to Selection Screen" onPress={() => navigation.navigate('SelectionScreen', {
+                        <Button title="Go to Selection Screen"
+                            onPress={() => navigation.navigate('SelectionScreen', {
                                 name: user.displayName,
                                 id: user.uid
                             })}
@@ -65,7 +66,8 @@ export default function Login({ navigation }) {
                                 <GoogleSigninButton style={{ width: 192, height: 48 }}
                                     size={GoogleSigninButton.Size.Wide}
                                     color={GoogleSigninButton.Color.Dark}
-                                    onPress={signInWithGoogleAsync} />
+                                    onPress={signInWithGoogleAsync}
+                                />
                             </View>
                         )}
                 </View>
