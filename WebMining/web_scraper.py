@@ -16,6 +16,7 @@ Flags:
 
 import argparse
 import csv
+import logging
 import re
 import spacy
 import wikipedia
@@ -44,9 +45,12 @@ def parse_wikipedia(link):
 			if wiki.section(section_title) != None:
 				content += wiki.section(section_title)
 			else:
-				print("couldnt add section_title: ", section_title)
+				logging.info("couldnt add section_title: {}".format(section_title))
 
-	return topic.split("_"), content
+	# Topic should contain [first_name, last_name, first_name last_name]
+	topics = topic.split("_")
+	topics.append(" ".join(topics))  # Add [first_name last_name]
+	return topics, content
 
 def get_keywords(topic_entries, doc_sentence):
 	kw = []
@@ -60,7 +64,7 @@ def get_keywords(topic_entries, doc_sentence):
 
 def main():
 	parser = argparse.ArgumentParser(description='Scrape Wikipedia and dump text to csv file.')
-	parser.add_argument("--no-enable-pov-converter", action="store_false")	# True if not set
+	parser.add_argument("--no-enable-pov-converter",  action="store_false")	# True if not set
 
 	args = parser.parse_args()
 	enable_pov_converter = args.no_enable_pov_converter
@@ -71,16 +75,13 @@ def main():
 
 		if "wikipedia.org" in urlparse(link).netloc:	
 			topic_entries, text = parse_wikipedia(link)
-		
-		# Topic should contain [first_name, last_name, first_name last_name]
-		topic_entries.append(" ".join(topic_entries))  # Add first_name last_name
 
 		if enable_pov_converter:
 			valid_names, invalid_names = pov_converter.get_valid_name_opts(topic_entries)
 			pov_mapper = pov_converter.build_pov_map(valid_names, invalid_names)
 
-		if text == "":
-			# log error and return
+		if not topic_entries or text == "":
+			logging.critical("Unable to retrieve text from article")
 			return
 
 		nlp = spacy.load('en_core_web_sm')
@@ -104,7 +105,7 @@ def main():
 			final_sentences = updated_sentences
 		else:
 			final_sentences = [s.text for s in sentences]
-		
+	
 		scraper_output = "_".join(topic_entries[:-1]) + ".csv"
 		fields = ["Keywords", "Sentence"]
 		with open(scraper_output, "w") as csvfile:
@@ -124,5 +125,6 @@ def main():
 						break
 					count += 1
 
-main()
+if __name__ == '__main__':
+	main()
 

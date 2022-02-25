@@ -81,19 +81,26 @@ def build_pov_map(valid_names, invalid_names):
 			# Note this might not always be correct depending on the subject of the sentence.
 			mapper.invalid_names_map[iv] = "they"
 
+	# print("\ninvalid = {}".format(mapper.invalid_names_map.keys()))
+	# print("valid = {}".format(mapper.valid_names_map.keys()))
+	
+
 	return mapper
+
+def get_gender(name):
+	detector = gender.Detector()
+	return detector.get_gender(name)
 
 def update_pov(first_name, keywords, sentence, mapper):
 	nlp = spacy.load("en_core_web_sm")
-	detector = gender.Detector()
 	converter = inflect.engine()
 
 	# Determine gender to help us identify the right matching pronouns
-	role_model_gender = detector.get_gender(first_name)
+	role_model_gender = get_gender(first_name)
 
 	new_sentence = []
 	first_person_pronouns = \
-	mapper.masculine_pronouns_pov_map.values() if role_model_gender == "male" else mapper.masculine_pronouns_pov_map.values()
+		mapper.masculine_pronouns_pov_map.values() if role_model_gender == "male" else mapper.masculine_pronouns_pov_map.values()
 	
 	# For each word in a given sentence we have to determine its first person equivalent
 	# The steps are as follows:
@@ -104,10 +111,14 @@ def update_pov(first_name, keywords, sentence, mapper):
 	for index, word in enumerate(sentence):
 		modified = False
 		word_in_keywords = next((e for e in keywords if word.text in e), None)   
-		word_in_invalid_names = \
+		keyword_in_invalid_names = \
 			False if word_in_keywords == None else any(word_in_keywords in iv for iv in mapper.invalid_names_map.keys())
 
-		if word_in_invalid_names:
+	#	print("\nword.text = {}".format(word.text))
+	#	print("word_in_keywords = ", word_in_keywords)
+	#	print("keyword_in_invalid_names = ", keyword_in_invalid_names)
+ 
+		if keyword_in_invalid_names:
 			new_sentence.append(word.text)
 			modified = True
 		elif word.text in mapper.invalid_names_map.keys():
@@ -144,7 +155,7 @@ def update_pov(first_name, keywords, sentence, mapper):
 	new_sentence = " ".join(new_sentence)
 	
 	# Print something while processing to indicate it's running
-#	print("\noriginal sentence = {}\nnew_sentence = {}".format(sentence, new_sentence))
+	print("\noriginal sentence = {}\nnew_sentence = {}".format(sentence, new_sentence))
 	return new_sentence
 
 
