@@ -13,7 +13,7 @@ The list of urls to scrape. Conventional standards likely would have been to use
 ## Dependencies
 [Python 3](https://www.python.org/download/releases/3.0/) - I ran Python 3.9.9 and can only confirm that version works. As such, when installing the below dependencies prefer pip3 **not** pip.
 
-```pip3 install inflect spacy numpy gender-guesser wikipedia transformers nltk```
+```pip3 install inflect spacy numpy gender-guesser wikipedia```
 
 * [Inflect](https://pypi.org/project/inflect/)
 * [Spacy](https://spacy.io/)
