@@ -25,7 +25,9 @@ To enable pov conversion (default behaviour): ```python3 web_scraper.py```
 
 To disable pov conversion: ```python3 web_scraper.py --no-enable-pov-converter``` 
 
-The list of urls to scrape is contained in articles.py (The list of urls to scrape. Conventional standards likely would have been to use a ,json file, but this was easier at the time.)
+The list of urls to scrape is contained in [articles.py](/articles.py). (The list of urls to scrape. Conventional standards likely would have been to use a ,json file, but this was easier at the time.)
+
+### Output
 
 ## Future Work
 Some tools may have been helpful while building this module but unfortunately they weren't available at the time. It be useful to reevaluate them at a later date. 
