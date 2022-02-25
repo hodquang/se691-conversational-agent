@@ -7,9 +7,6 @@ This is the entry point of the folder. It executes the scraper functionality and
 ### pov_converter.py
 This module converts third person text to first person text. It is a manual conversion due to current lack of open source tooling to handle this problem. 
 
-### articles.py
-The list of urls to scrape. Conventional standards likely would have been to use a ,json file, but this was easier at the time. 
-
 ## Dependencies
 [Python 3](https://www.python.org/download/releases/3.0/) - I ran Python 3.9.9 and can only confirm that version works. As such, when installing the below dependencies prefer pip3 **not** pip.
 
@@ -27,6 +24,8 @@ Because this is a standalone python3 command line program, execution is one line
 To enable pov conversion (default behaviour): ```python3 web_scraper.py``` 
 
 To disable pov conversion: ```python3 web_scraper.py --no-enable-pov-converter``` 
+
+The list of urls to scrape is contained in articles.py (The list of urls to scrape. Conventional standards likely would have been to use a ,json file, but this was easier at the time.)
 
 ## Future Work
 Some tools may have been helpful while building this module but unfortunately they weren't available at the time. It be useful to reevaluate them at a later date. 
