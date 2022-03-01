@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "11544258142",
+    "firebase_url": "https://kobe-atmt-default-rtdb.firebaseio.com",
+    "project_id": "kobe-atmt",
+    "storage_bucket": "kobe-atmt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11544258142:android:23db07e333746f77aa76cf",
+        "android_client_info": {
+          "package_name": "com.chatbot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11544258142-b1uv3l91v9uak0prltrg2tfugpunmt1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chatbot",
+            "certificate_hash": "a59ae0ee418a6ffe393b38c272fa8eef848dc958"
+          }
+        },
+        {
+          "client_id": "11544258142-lr7fisp3cuumtrcmnt6h83da4eiqqqnd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chatbot",
+            "certificate_hash": "d5f81aedac303db95aeabe7a609b9ec111bd7533"
+          }
+        },
+        {
+          "client_id": "11544258142-5fogdf3n26l54e0ljt37l5eku9l3574l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhTw-Za8n_y7yAauH9c1I-CiZw9zAUmiE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "11544258142-5fogdf3n26l54e0ljt37l5eku9l3574l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "11544258142-fgvefcmtnliibvntpdq1t79cgjj53s92.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.Chatbot"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
