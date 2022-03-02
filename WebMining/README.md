@@ -11,6 +11,7 @@ This module converts third person text to first person text. It is a manual conv
 [Python 3](https://www.python.org/download/releases/3.0/) - I ran Python 3.9.9 and can only confirm that version works. As such, when installing the below dependencies prefer pip3 **not** pip, and python3 **not** python.
 
 ```pip3 install inflect spacy numpy gender-guesser wikipedia wikipedia_sections```
+
 ```python3 -m spacy download en_core_web_sm```
 
 
