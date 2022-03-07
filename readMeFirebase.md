@@ -1,4 +1,4 @@
-# FIREBASE
+# FIREBASE (https://www.youtube.com/watch?v=3J1M1bSwgV8)
 
 - # AUTHENTICATION
   - follow the link to the console (https://console.firebase.google.com/u/0/project/kobe-atmt/overview)
