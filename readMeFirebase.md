@@ -1,4 +1,4 @@
-# FIREBASE (https://www.youtube.com/watch?v=3J1M1bSwgV8)
+# FIREBASE 
 
 - # AUTHENTICATION
   - follow the link to the console (https://console.firebase.google.com/u/0/project/kobe-atmt/overview)
@@ -32,3 +32,5 @@
       - Once created Follow next instructions
     - # View Database
       - follow the link to BigQuery https://console.cloud.google.com/bigquery  
+
+Video Demonstration (https://www.youtube.com/watch?v=3J1M1bSwgV8)
