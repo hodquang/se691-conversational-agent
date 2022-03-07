@@ -7,7 +7,7 @@
     - Scroll Over the User and next to User UID you can copy the User UID.   
     - Scroll Over the User and on the far right click on the three dots (...) and you can "Delete account", "Disable account", or "Reset password".
 - # DATABASE 
-  - follow the link to the console (https://console.firebase.google.com/u/0/project/kobe-atmt/overview)
+  - follow the link to the console (https://console.cloud.google.com/firestore)
   - Under "BUILD" select "Firestore Database"
   - Conversations are stored under the Agent Name -> User -> MESSAGES.  
   - MESSAGES has the fields created/message_from/message_to/role_model/text
